@@ -74,7 +74,7 @@ const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summar
         <div class="post">
             <a href="${postLink}" class="post-link"></a>
             <div class="thumbnail">
-                <img src="${thumbUrl}" alt="img1">
+                <img src="https://harekrishnamandir.org/uploads/gallery/2024-06-08%20Darshan_4406312.webp" alt="img1">
             </div>
 
             <div class="title-container">
