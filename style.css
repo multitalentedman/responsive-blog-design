@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+.home-page .centered {
+    max-width: unset;
+}
+
 .blog-posts-container {
     font-family: "Montserrat", sans-serif;
     display: grid;
