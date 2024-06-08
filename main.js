@@ -74,7 +74,7 @@ const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summar
         <div class="post">
             <a href="${postLink}" class="post-link"></a>
             <div class="thumbnail">
-                <img src="https://harekrishnamandir.org/uploads/gallery/2024-06-08%20Darshan_4406312.webp" alt="img1">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fscience.nasa.gov%2Fmissions%2Fhubble%2Fhubble-sees-possible-runaway-black-hole-creating-a-trail-of-stars%2F&psig=AOvVaw2pK9EQcfhXcq-fNYexW--1&ust=1717938907534000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCQjLOLzIYDFQAAAAAdAAAAABAE" alt="img1">
             </div>
 
             <div class="title-container">
