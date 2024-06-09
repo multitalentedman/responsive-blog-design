@@ -1,4 +1,5 @@
 const $blogPostsContainer = $('.blog-posts-container');
+const loadMoreBtn = $('.load-more-btn');
 let startIndex = 1;
 const maxResults = 6;
 
@@ -51,10 +52,25 @@ const populateAllPosts = (posts) => {
 }
 
 const fetchAllPosts = (data) => {
-    console.log(data);
     populateAllPosts(data.feed.entry);
+    let nextLink = data.feed.link;
+    if (nextLink[nextLink.length - 1].rel == 'next') {
+
+        startIndex += maxResults;
+        fetchLink = `https://multitalentedman.blogspot.com/feeds/posts/summary?max-results=${maxResults}&start-index=${startIndex}&alt=json`;
+    }
+    else{
+        loadMoreBtn.css('display','none');
+    }
+
 }
 
 fetch(fetchLink)
-.then((res)=>res.json())
-.then((data)=> fetchAllPosts(data));
+    .then((res) => res.json())
+    .then((data) => fetchAllPosts(data));
+
+loadMoreBtn.on('click',()=>{
+    fetch(fetchLink)
+    .then((res) => res.json())
+    .then((data) => fetchAllPosts(data));
+})
