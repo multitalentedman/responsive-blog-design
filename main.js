@@ -1,4 +1,8 @@
 const $blogPostsContainer = $('.blog-posts-container');
+let startIndex = 1;
+const maxResults = 6;
+
+let fetchLink = `https://multitalentedman.blogspot.com/feeds/posts/summary?max-results=${maxResults}&start-index=${startIndex}&alt=json`
 
 const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summary, author, datePublished) => {
     let HTMLCode = `
@@ -50,3 +54,7 @@ const fetchAllPosts = (data) => {
     console.log(data);
     populateAllPosts(data.feed.entry);
 }
+
+fetch(fetchLink)
+.then((res)=>res.json())
+.then((data)=> fetchAllPosts(data));
