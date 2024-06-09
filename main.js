@@ -1,72 +1,3 @@
-const posts = [
-    {
-        id: 1,
-        thumbUrl: "images/port1.jpg",
-        postLink: "#",
-        category: "AI",
-        categoryLink: "#",
-        title: "AI - Things You Should Learn",
-        summary: "Summmary AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn",
-        author: "Admin",
-        datePublished: "Feb 20, 2010"
-    },
-    {
-        id: 1,
-        thumbUrl: "images/port2.jpg",
-        postLink: "#",
-        category: "AI",
-        categoryLink: "#",
-        title: "AI - Things You Should Learn",
-        summary: "Summmary AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn",
-        author: "Admin",
-        datePublished: "Feb 20, 2010"
-    },
-    {
-        id: 1,
-        thumbUrl: "images/port3.jpg",
-        postLink: "#",
-        category: "AI",
-        categoryLink: "#",
-        title: "AI - Things You Should Learn",
-        summary: "Summmary AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn",
-        author: "Admin",
-        datePublished: "Feb 20, 2010"
-    },
-    {
-        id: 1,
-        thumbUrl: "images/port4.jpg",
-        postLink: "#",
-        category: "AI",
-        categoryLink: "#",
-        title: "AI - Things You Should Learn",
-        summary: "Summmary AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn",
-        author: "Admin",
-        datePublished: "Feb 20, 2010"
-    },
-    {
-        id: 1,
-        thumbUrl: "images/port5.jpg",
-        postLink: "#",
-        category: "AI",
-        categoryLink: "#",
-        title: "AI - Things You Should Learn",
-        summary: "Summmary AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn",
-        author: "Admin",
-        datePublished: "Feb 20, 2010"
-    },
-    {
-        id: 1,
-        thumbUrl: "images/port6.jpg",
-        postLink: "#",
-        category: "AI",
-        categoryLink: "#",
-        title: "AI - Things You Should Learn",
-        summary: "Summmary AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn AI - Things You Should Learn",
-        author: "Admin",
-        datePublished: "Feb 20, 2010"
-    }
-];
-
 const $blogPostsContainer = $('.blog-posts-container');
 
 const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summary, author, datePublished) => {
@@ -101,10 +32,21 @@ const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summar
     $blogPostsContainer.append(HTMLCode);
 }
 
-const populateAllPosts = () => {
+const populateAllPosts = (posts) => {
     $.each(posts, (index, post) => {
-        createPostDiv(post.postLink, post.thumbUrl, post.category, post.categoryLink, post.title, post.summary, post.author, post.datePublished);
+        createPostDiv(
+            post.link[post.link.length-1].href, 
+            post.media$thumbnail.url, 
+            post.category?post.category[0].term:'uncategorised', 
+            post.category?`https://multitalentedman.blogspot.com/search/label/${post.category}`:'#', 
+            post.title.$t, 
+            post.summary.$t, 
+            post.author[0].name.$t, 
+            new Date(post.published.$t).toLocalDateString());
     });
 }
 
-populateAllPosts();
+const fetchAllPosts = (data)=> {
+    console.log(data);
+    populateAllPosts(data.feed.entry);
+}
