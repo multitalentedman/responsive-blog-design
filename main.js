@@ -42,7 +42,7 @@ const populateAllPosts = (posts) => {
             post.title.$t, 
             post.summary.$t, 
             post.author[0].name.$t, 
-            new Date(post.published.$t).toLocalDateString());
+            new Date(post.published.$t).toLocaleDateString());
     });
 }
 
