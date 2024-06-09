@@ -6,6 +6,10 @@ body {
     max-width: unset !important;
 }
 
+.home-page .sidebar-container .container .sidebar-invisible {
+    display: none;
+}
+
 .blog-posts-container {
     font-family: "Montserrat", sans-serif;
     display: grid;
