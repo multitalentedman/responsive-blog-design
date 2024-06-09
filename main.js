@@ -35,18 +35,18 @@ const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summar
 const populateAllPosts = (posts) => {
     $.each(posts, (index, post) => {
         createPostDiv(
-            post.link[post.link.length-1].href, 
-            post.media$thumbnail?post.media$thumbnail.url:'#', 
-            post.category?post.category[0].term:'uncategorised', 
-            post.category?`https://multitalentedman.blogspot.com/search/label/${post.category}`:'#', 
-            post.title.$t, 
-            post.summary.$t, 
-            post.author[0].name.$t, 
+            post.link[post.link.length - 1].href,
+            post.media$thumbnail ? post.media$thumbnail.url.replace('/s72', '/s400') : '#',
+            post.category ? post.category[0].term : 'uncategorised',
+            post.category ? `https://multitalentedman.blogspot.com/search/label/${post.category}` : '#',
+            post.title.$t,
+            post.summary.$t,
+            post.author[0].name.$t,
             new Date(post.published.$t).toLocaleDateString());
     });
 }
 
-const fetchAllPosts = (data)=> {
+const fetchAllPosts = (data) => {
     console.log(data);
     populateAllPosts(data.feed.entry);
 }
