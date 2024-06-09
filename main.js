@@ -36,7 +36,7 @@ const populateAllPosts = (posts) => {
     $.each(posts, (index, post) => {
         createPostDiv(
             post.link[post.link.length-1].href, 
-            post.media$thumbnail.url, 
+            post.media$thumbnail?post.media$thumbnail.url:'#', 
             post.category?post.category[0].term:'uncategorised', 
             post.category?`https://multitalentedman.blogspot.com/search/label/${post.category}`:'#', 
             post.title.$t, 
