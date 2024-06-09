@@ -6,7 +6,7 @@ body {
     max-width: unset !important;
 }
 
-.home-page .sidebar-container .container .sidebar-invisible {
+.home-page .sidebar-container.container.sidebar-invisible {
     display: none;
 }
 
