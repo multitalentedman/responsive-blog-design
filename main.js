@@ -5,7 +5,7 @@ const createPostDiv = (postLink, thumbUrl, category, categoryLink, title, summar
         <div class="post">
             <a href="${postLink}" class="post-link"></a>
             <div class="thumbnail">
-                <img src="https://cdn.photoroom.com/v1/assets-cached.jpg?path=backgrounds_v3/black/Photoroom_black_background_extremely_fine_texture_only_black_co_b1c41896-a1df-4f85-b9e8-f9da76bd9ba9.jpg" alt="img1">
+                <img src="${thumbUrl}" alt="img1">
             </div>
 
             <div class="title-container">
