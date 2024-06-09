@@ -3,7 +3,7 @@ body {
 }
 
 .home-page .centered {
-    max-width: unset;
+    max-width: unset !important;
 }
 
 .blog-posts-container {
