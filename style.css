@@ -15,6 +15,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     color: #fff;
+    margin-top:60px;
 }
 
 .blog-posts-container a {
